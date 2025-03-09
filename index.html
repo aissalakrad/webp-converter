@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebP Converter</title>
+</head>
+<body>
+    <o>Convert WebP files to PNG/JPEG files locally.</p>
+    <input type="file" id="select" accept="image/webp" multiple>
+    <select id="format">
+        <option value="image/png">PNG</option>
+        <option value="image/jpeg">JPEG</option>
+    </select>
+    <button id="convert">Convert</button>
+    <br>
+    <div id="downloads"></div>
+
+    <canvas id="canvas" style="display: none;"></canvas>
+
+    <script>
+        document.getElementById('convert').addEventListener('click', function () {
+            const fileInput = document.getElementById('select');
+            const format = document.getElementById('format').value;
+            const downloadsContainer = document.getElementById('downloads');
+            downloadsContainer.innerHTML = '';
+
+            if (!fileInput.files.length) {
+                alert("Please select at least one WebP image.");
+                return;
+            }
+
+            Array.from(fileInput.files).forEach(file => {
+                const originalName = file.name.split('.').slice(0, -1).join('.');
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    const img = new Image();
+                    img.onload = function () {
+                        const canvas = document.getElementById('canvas');
+                        const ctx = canvas.getContext('2d');
+
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        ctx.drawImage(img, 0, 0);
+
+                        canvas.toBlob(function (blob) {
+                            const url = URL.createObjectURL(blob);
+                            const downloadLink = document.createElement('a');
+                            downloadLink.href = url;
+                            downloadLink.download = `${originalName}.${format.split('/')[1]}`;
+                            downloadLink.textContent = `Download ${downloadLink.download}`;
+                            downloadLink.style.display = 'block';
+                            downloadsContainer.appendChild(downloadLink);
+                        }, format);
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        });
+    </script>
+</body>
+</html>
