@@ -6,7 +6,7 @@
     <title>WebP Converter</title>
 </head>
 <body>
-    <o>Convert WebP files to PNG/JPEG files locally.</p>
+    <p>Convert WebP files to PNG/JPEG files locally.</p>
     <input type="file" id="select" accept="image/webp" multiple>
     <select id="format">
         <option value="image/png">PNG</option>
@@ -14,6 +14,11 @@
     </select>
     <button id="convert">Convert</button>
     <br>
+    
+    <div id="infoMessage" style="display: none; color: green; margin-top: 10px;">
+        Conversion complete!
+    </div>
+    
     <div id="downloads"></div>
 
     <canvas id="canvas" style="display: none;"></canvas>
@@ -23,7 +28,9 @@
             const fileInput = document.getElementById('select');
             const format = document.getElementById('format').value;
             const downloadsContainer = document.getElementById('downloads');
+            const infoMessage = document.getElementById('infoMessage');
             downloadsContainer.innerHTML = '';
+            infoMessage.style.display = 'none';
 
             if (!fileInput.files.length) {
                 alert("Please select at least one WebP image.");
@@ -49,10 +56,12 @@
                             const downloadLink = document.createElement('a');
                             downloadLink.href = url;
                             downloadLink.download = `${originalName}.${format.split('/')[1]}`;
-                            downloadLink.textContent = `Download ${downloadLink.download}`;
+                            downloadLink.textContent = `Save ${downloadLink.download}`;
                             downloadLink.style.display = 'block';
                             downloadsContainer.appendChild(downloadLink);
                         }, format);
+
+                        infoMessage.style.display = 'block';
                     };
                     img.src = e.target.result;
                 };
