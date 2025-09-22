@@ -12,7 +12,7 @@ A lightweight web tool that converts **.webp** images into **.png** and **.jpeg*
   * Unnecessary delays
   * Privacy risks, since your files are uploaded to third‑party servers.
 
-This project solves all of those issues by keeping things **local, fast, and free of charge**.
+This tool solves all of those issues by keeping things **local, fast, and free of charge**.
 
 ## How It Works
 
