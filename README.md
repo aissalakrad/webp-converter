@@ -4,8 +4,7 @@ A lightweight web tool that converts **.webp** images into **.png** and **.jpeg*
 
 ## Why I Built This
 
-* Downloading an image from Google Images often means ending up with a **.webp** file that many apps can’t handle (including Windows).
-* Online converters exist, but they usually come with:
+Downloading an image from Google Images often means ending up with a **.webp** file that many apps can’t handle (including Windows). In addition, online converters exist, but they usually come with:
 
   * Paywalls
   * Annoying ads
@@ -14,7 +13,7 @@ A lightweight web tool that converts **.webp** images into **.png** and **.jpeg*
 
 This tool solves all of those issues by keeping things **local, fast, and free of charge**.
 
-## How It Works
+## How To Use
 
 1. Open the webpage (hosted via GitHub Pages).
 2. Select a `.webp` image from your device.
