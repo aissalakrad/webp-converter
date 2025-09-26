@@ -1,6 +1,6 @@
 # WebP Converter
 
-A lightweight web tool that converts **.webp** images into **.png** and **.jpeg**. formats. Convertion runs directly on the user’s browser/machine.
+A lightweight web tool that converts **.webp** images into **.png** and **.jpeg**. formats directly on the user’s browser/machine.
 
 ## How To Use
 
