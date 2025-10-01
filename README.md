@@ -1,6 +1,6 @@
 # WebP Converter
 
-A lightweight web tool that converts **.webp** images into **.png** and **.jpeg**. formats directly on the user’s browser/machine.
+A lightweight web tool that converts **.webp** images into **.png** and **.jpeg**. formats directly on the user’s browser.
 
 ## How To Use
 
@@ -16,6 +16,6 @@ Downloading an image from Google Images often means ending up with a **.webp** f
   * Paywalls
   * Annoying ads
   * Unnecessary delays
-  * Privacy risks, since your files uploaded and processed externally.
+  * Privacy risks, since your files are uploaded and processed externally.
 
 This tool solves all of those issues by keeping things **fast, local, and free of charge**.
